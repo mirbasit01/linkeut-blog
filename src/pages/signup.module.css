@@ -1,4 +1,5 @@
-/* src/app/login/login.module.css */
+/* src/pages/signup.module.css */
+/* Based directly on login.module.css for consistency */
 
 .container {
   display: flex;
@@ -62,8 +63,21 @@
   color: #374151; /* Equivalent to text-gray-700 */
 }
 
+/* --- NEW: Style for the Signup Form Title --- */
+.formTitle {
+  text-align: center;
+  /* margin-bottom: 1.5rem; */ /* Let form spacing handle it below */
+  font-size: 1.5rem;  /* Slightly smaller than logo */
+  line-height: 2rem;
+  font-weight: 600; /* Semibold */
+  color: #1f2937; /* Dark gray */
+  margin-bottom: 1.5rem; /* Add spacing below title */
+}
+
+
+/* Use same spacing logic for form elements */
 .loginForm > *:not(:first-child) {
-   margin-top: 1.5rem; /* Approximates space-y-6 */
+   margin-top: 1rem; /* Adjust spacing if needed for signup */
 }
 
 
@@ -79,6 +93,14 @@
   font-weight: 500; /* Equivalent to font-medium */
   color: #374151; /* Equivalent to text-gray-700 */
   margin-bottom: 0.25rem; /* Equivalent to mb-1 */
+}
+
+/* --- NEW: Style for Optional Text Span --- */
+.optional {
+  font-size: 0.8em; /* Relative to label */
+  color: #6b7280; /* Lighter gray */
+  margin-left: 0.3rem;
+  font-weight: 400; /* Normal weight */
 }
 
 .input {
@@ -105,11 +127,12 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 0 3px rgba(234, 179, 8, 0.5);
 }
 
+/* Keep checkbox styles even if unused, for exact match */
 .rememberRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.5rem; /* Adjust if form spacing isn't enough */
+  margin-top: 1rem; /* Adjust if form spacing isn't enough */
 }
 
 .checkboxGroup {
@@ -134,7 +157,6 @@
    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.5);
 }
 
-
 .checkboxLabel {
   /* display: block; */ /* Usually not needed in flex */
   font-size: 0.875rem; /* Equivalent to text-sm */
@@ -143,6 +165,8 @@
   user-select: none; /* Prevent text selection on click */
   cursor: pointer;
 }
+/* End checkbox styles */
+
 
 .submitButton {
   display: inline-flex; /* Use inline-flex for centering content */
@@ -160,20 +184,27 @@
   background-color: #facc15; /* Equivalent to bg-yellow-400 */
   cursor: pointer;
   transition: background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
-  margin-top: 1.5rem; /* Add margin similar to other form elements */
+  margin-top: 1rem; /* Add margin similar to other form elements */
 }
 
 .submitButton:hover {
   background-color: #eab308; /* Equivalent to hover:bg-yellow-500 */
 }
 
+.submitButton:focus {
+  outline: none;
+  /* Simulate focus ring with offset */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 0 2px #ffffff, 0 0 0 4px #eab308;
+}
 
+/* --- NEW: Style for the Switch Form Link --- */
 .switchFormLink {
   text-align: center;
   margin-top: 1.5rem; /* Spacing after the button */
   font-size: 0.875rem; /* Same as labels/inputs */
   color: #374151; /* Medium gray */
 }
+
 .switchFormLink a {
   color: #ca8a04; /* Match checkbox accent / focus color */
   text-decoration: none;
@@ -185,16 +216,10 @@
   color: #a16207; /* Darker yellow/brown */
   text-decoration: underline;
 }
+/* --- End New Link Style --- */
 
 
-
-.submitButton:focus {
-  outline: none;
-  /* Simulate focus ring with offset */
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 0 2px #ffffff, 0 0 0 4px #eab308;
-}
-
-/* --- Media Queries --- */
+/* --- Media Queries (Copied directly) --- */
 
 /* Equivalent to md: breakpoint (768px) */
 @media (min-width: 768px) {
@@ -205,7 +230,7 @@
 
 /* Equivalent to lg: breakpoint (1024px) */
 @media (min-width: 1024px) {
-  .leftPanel { 
+  .leftPanel {
     display: flex; /* Show left panel */
   }
-} 
+}

@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './login.module.css'; // <--- This import is correct here
+import Link from 'next/link'; // <--- IMPORT Link
 
 // Remove react-icons import if you are not using an icon
 // import { BsGridFill } from 'react-icons/bs';
@@ -88,6 +89,13 @@ src="/login-illustration.png"
             >
               Log In
             </button>
+             <p className={styles.switchFormLink}>
+              Dont have an account?
+               <Link href="/signup" className={styles.linkAction}>
+                 Sign Up
+              </Link>
+             </p>
+
           </form>
         </div>
       </div>

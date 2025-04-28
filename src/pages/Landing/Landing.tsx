@@ -6,8 +6,7 @@ import styles from './Landing.module.css'; // Keep relative for component-specif
 import techImage from '../component/assets/tech.jpg.png';
 import travelImage from '../component/assets/travel.jpg.png';
 import culinaryImage from '../component/assets/culinary.jpg.png';
-import heroBgImage from '../component/assets/Card.jpg.png'; // Example for a background image
-
+ 
 
 
 // --- Font Awesome Setup ---
@@ -32,7 +31,7 @@ const Landing: React.FC = () => {
 
         {/* === ADD THIS CONTENT === */}
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Welcome to SpeedyBlog</h1>
+          <h1 className={styles.heroTitle}>Welcome to Linkeut Blog</h1>
           <p className={styles.heroSubtitle}>Discover the latest articles and insights</p>
         </div>
         {/* === END OF ADDED CONTENT === */}
