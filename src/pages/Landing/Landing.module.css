@@ -1,0 +1,244 @@
+/* src/component/Landing/Landing.module.css */
+.landingPage {
+  font-family: sans-serif; /* Basic font */
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #6c757d; /* Fallback color */
+  /* If using image: */
+  /* background-image: url('../assets/hero-bg.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+
+  /* Using gradient similar to image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                    radial-gradient(circle at top left, rgba(180, 180, 180, 0.2) 0%, transparent 40%),
+                    radial-gradient(circle at bottom right, rgba(150, 150, 150, 0.2) 0%, transparent 50%);
+  background-color: #787d82; /* Base dark grey */
+
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem 4rem 1rem; /* More padding top/bottom */
+  position: relative; /* For overlay */
+  min-height: 300px; /* Ensure some height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroOverlay {
+  /* Optional: Add a darker overlay if bg image is too bright */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  /* z-index: 1; */
+}
+
+.heroContent {
+  position: relative; /* Above overlay */
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #e0e0e0; /* Slightly lighter grey */
+}
+
+/* Common Section Styling */
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: left; /* Align left as per image */
+}
+
+.featuredArticles,
+.categories {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Center content */
+}
+
+/* Featured Articles Section */
+.articlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+}
+
+.articleCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Keep image corners rounded */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover the area, might crop */
+  display: block;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Categories Section */
+.categories {
+  background-color: #f4f5d6; /* Light yellowish background */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem; /* Space above categories */
+}
+
+.categoriesTitle {
+   text-align: left; /* Reset alignment if needed */
+   margin-bottom: 1.5rem; /* Adjust spacing */
+   /* Make full width title */
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 0 2rem; /* Match section padding */
+}
+
+/* Adjusting categories section itself to be full width before centering grid */
+.categories .categoriesGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; /* Match section padding */
+}
+
+.categoriesGrid {
+  display: flex;
+  justify-content: space-around; /* Space out items */
+  align-items: flex-start; /* Align items to top */
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 2rem; /* Gap between items */
+  text-align: center;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+  min-width: 100px; /* Give items some base width */
+}
+
+.categoryIcon {
+  font-size: 2rem;
+  color: #e6c300; /* Yellowish icon color */
+  margin-bottom: 0.5rem;
+  width: 60px; /* Icon container */
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  /* Optional: background for icon */
+  /* background-color: rgba(230, 195, 0, 0.1); */
+}
+
+.categoryLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* CTA Button */
+.ctaContainer {
+  text-align: center;
+  padding: 2rem 1rem 3rem 1rem; /* Add padding around button */
+}
+
+.ctaButton {
+  background-color: #e6c300; /* Yellow button */
+  color: #333; /* Dark text */
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: #d4b300; /* Darker yellow on hover */
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+    text-align: center; /* Center titles on mobile maybe? */
+  }
+
+  .featuredArticles,
+  .categories,
+  .categories .categoriesGrid { /* Adjust padding for mobile */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .categoriesTitle {
+    padding: 0 1rem; /* Adjust padding for mobile */
+    text-align: center; /* Center title on mobile */
+  }
+
+  .articlesGrid {
+     gap: 1.5rem;
+  }
+
+  .categoriesGrid {
+     justify-content: center; /* Center items when wrapping */
+     gap: 1.5rem;
+  }
+}
+.cardImage {
+  /* width: 100%; */ /* Might still be needed depending on layout */
+  /* height: 200px; */ /* REMOVE or comment out - controlled by props now */
+  object-fit: cover; /* Can be removed if using inline style/prop */
+  display: block; /* Often good practice */
+  /* Ensure the component itself behaves as expected */
+  max-width: 100%; /* Make sure image scales down */
+  height: auto !important; /* Override potential fixed height from elsewhere IF NEEDED */
+}

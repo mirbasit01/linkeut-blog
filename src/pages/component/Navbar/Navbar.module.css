@@ -1,0 +1,104 @@
+/* src/component/Navbar/Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff; /* Or transparent if overlapping hero */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative; /* Needed if background is transparent */
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.logoIcon {
+  color: #e6c300; /* Yellowish color like in image */
+  margin-right: 0.3rem;
+  font-size: 0.8em; /* Make triangle smaller */
+  display: inline-block;
+  transform: translateY(-1px); /* Align vertically */
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  margin-left: 1.5rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #000;
+}
+
+.login, .signup {
+  color: #e6c300; /* Yellowish color */
+  font-weight: 600;
+}
+
+.signup {
+  /* Add slight differentiation if needed, e.g., border or background */
+  /* background-color: #e6c300; */
+  /* color: #333; */
+  /* padding: 0.3rem 0.8rem; */
+  /* border-radius: 4px; */
+}
+
+.mobileMenuToggle {
+  display: none; /* Hidden by default */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none; /* Hide links on smaller screens - requires JS to toggle */
+    /* Or stack them if you implement dropdown logic */
+    /* position: absolute; */
+    /* top: 100%; */
+    /* left: 0; */
+    /* background-color: #fff; */
+    /* width: 100%; */
+    /* flex-direction: column; */
+    /* padding: 1rem 0; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  }
+
+  /* .navLinks.active { */
+    /* display: flex; */ /* Show when active */
+  /* } */
+
+  .navLinks li {
+    margin: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .mobileMenuToggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  .navbar {
+      padding: 1rem;
+  }
+}

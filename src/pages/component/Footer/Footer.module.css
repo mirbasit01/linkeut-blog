@@ -1,0 +1,82 @@
+/* src/component/Footer/Footer.module.css */
+.footer {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 1.5rem 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid #e7e7e7;
+  color: #6c757d; /* Grey text */
+  font-size: 0.9rem;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: 1200px; /* Optional: constrain width */
+  margin: 0 auto; /* Center content */
+}
+
+.copyright {
+  flex-basis: 100%; /* Full width on small screens initially */
+  text-align: center; /* Center on small screens */
+  margin-bottom: 1rem; /* Space below copyright */
+}
+
+.footerLinks {
+  flex-basis: 100%; /* Full width on small screens */
+  text-align: center; /* Center on small screens */
+  margin-bottom: 1rem; /* Space below links */
+}
+
+.footerLinks a {
+  color: #6c757d;
+  text-decoration: none;
+  margin: 0 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #333;
+}
+
+.socialIcons {
+  flex-basis: 100%; /* Full width on small screens */
+  text-align: center; /* Center on small screens */
+}
+
+.socialIcons a {
+  color: #e6c300; /* Yellowish color like in image */
+  margin: 0 0.5rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: #cdaa00; /* Darker yellow on hover */
+}
+
+/* Responsive Adjustments for larger screens */
+@media (min-width: 768px) {
+  .footerContent {
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+    justify-content: space-between;
+  }
+
+  .copyright {
+    flex-basis: auto; /* Allow natural width */
+    text-align: left;
+    margin-bottom: 0; /* Reset margin */
+  }
+
+  .footerLinks {
+    flex-basis: auto;
+    text-align: center; /* Keep centered or align right if preferred */
+    margin-bottom: 0;
+  }
+
+  .socialIcons {
+    flex-basis: auto;
+    text-align: right;
+  }
+}
