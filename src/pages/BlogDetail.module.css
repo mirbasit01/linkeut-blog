@@ -1,0 +1,169 @@
+/* src/pages/blog/BlogDetail.module.css */
+/* Using styling conventions from login/signup */
+
+.pageContainer {
+  font-family: sans-serif; /* Or your preferred default font */
+  color: #374151; /* Default text color (medium gray) */
+}
+
+.mainContent {
+  max-width: 1200px; /* Max width of content area */
+  margin: 2rem auto; /* Center content with top/bottom margin */
+  padding: 0 1rem; /* Padding on smaller screens */
+  display: flex;
+  flex-direction: column; /* Stack columns by default */
+  gap: 2rem; /* Space between main content and sidebar */
+}
+
+.leftColumn {
+  flex: 3; /* Takes up more space when side-by-side */
+  min-width: 0; /* Prevent flex item overflow */
+}
+
+.sidebar {
+  flex: 1; /* Takes up less space */
+  min-width: 0;
+}
+
+.articleTitle {
+  font-size: 2rem; /* Large title */
+  line-height: 2.5rem;
+  font-weight: 700; /* Bold */
+  color: #1f2937; /* Darker gray */
+  margin-bottom: 1.5rem;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* Match logo font */
+}
+
+.featuredImageContainer {
+  margin-bottom: 1.5rem;
+  position: relative; /* For potential aspect ratio control */
+  width: 100%;
+  border-radius: 0.375rem; /* Match input rounding */
+  overflow: hidden; /* Clip image to rounded corners */
+}
+
+.featuredImage {
+  display: block;
+  width: 100%;
+  height: auto; /* Maintain aspect ratio based on props */
+  object-fit: cover; /* Cover the container */
+}
+
+.articleBody {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #374151; /* Standard text color */
+}
+
+.articleBody p {
+  margin-bottom: 1rem;
+}
+
+.actionButtonsContainer {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  /* Style like submit button but smaller and yellow */
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #eab308; /* Yellow border */
+  border-radius: 0.375rem;
+  font-size: 0.8rem;
+  font-weight: 500; /* Medium */
+  color: #a16207; /* Darker yellow/brown text */
+  background-color: #fef9c3; /* Very light yellow background */
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+
+.actionButton:hover {
+  background-color: #fde68a; /* Slightly darker yellow */
+  border-color: #ca8a04;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid #e5e7eb; /* Light gray separator */
+  margin: 2rem 0;
+}
+
+.authorSection {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #4b5563; /* Slightly lighter gray */
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  font-size: 1.25rem; /* Example size */
+  font-weight: 600; /* Semibold */
+  color: #1f2937; /* Dark gray */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #facc15; /* Yellow accent border */
+  display: inline-block; /* Keep border only under text */
+}
+
+.relatedArticlesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.relatedArticleItem {
+  margin-bottom: 1rem;
+}
+
+.relatedArticleLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #374151;
+  transition: background-color 0.15s ease;
+  padding: 0.5rem; /* Add padding for hover effect */
+  border-radius: 0.25rem;
+}
+
+.relatedArticleLink:hover {
+   background-color: #f3f4f6; /* Light gray background on hover */
+   color: #1f2937;
+}
+
+.relatedThumbnail {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 80px; /* Fixed width */
+  height: 60px; /* Fixed height */
+  border-radius: 0.25rem;
+  overflow: hidden; /* Clip image */
+  display: flex; /* Center image if it's smaller */
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e7eb; /* Placeholder background */
+}
+
+.relatedThumbnail img {
+   /* Next/Image handles object-fit via prop */
+}
+
+.relatedTitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .mainContent {
+    flex-direction: row; /* Side-by-side columns */
+    padding: 0 2rem;
+  }
+  .articleTitle {
+     font-size: 2.5rem;
+     line-height: 3rem;
+  }
+}

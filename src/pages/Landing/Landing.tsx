@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopCode, faGlobeAmericas, faUtensils } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../component/Navbar/Navbar';
 import Footer from '../component/Footer/Footer';
+import Link from 'next/link'; // Make sure Link is imported
 
 // ... rest of your Landing component code
 const Landing: React.FC = () => {
@@ -43,23 +44,28 @@ const Landing: React.FC = () => {
         <h2 className={styles.sectionTitle}>Featured Articles</h2>
         <div className={styles.articlesGrid}>
           {/* Article Card 1 */}
-          <div className={styles.articleCard}>
-            {/* Use next/image component */}
-            <Image // <--- Changed from img
-              src={techImage} // <--- Pass the imported object
-              alt="Abstract technology concept"
-              className={styles.cardImage} // Keep or adjust className as needed
-              width={500} // Provide ACTUAL width of your image or desired render width
-              height={300} // Provide ACTUAL height of your image or desired render height
-              style={{ objectFit: 'cover' }} // Apply object-fit if needed
-            />
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>The Future of Tech</h3>
-              <p className={styles.cardDescription}>
-                Explore how technology is shaping our future with innovations in AI and machine learning.
-              </p>
-            </div>
-          </div>
+           <Link href="/BlogDetail" legacyBehavior>
+              {/* Add an anchor tag for styling and accessibility */}
+              <a className={styles.cardLinkWrapper}>
+                {/* Keep the original div structure */}
+                <div className={styles.articleCard}>
+                  <Image
+                    src={techImage}
+                    alt="Abstract technology concept"
+                    className={styles.cardImageInternal}
+                    width={500}
+                    height={300}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>The Future of Tech</h3>
+                    <p className={styles.cardDescription}>
+                      Explore how technology is shaping our future with innovations in AI and machine learning.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Link>
 
           {/* Article Card 2 */}
           <div className={styles.articleCard}>
