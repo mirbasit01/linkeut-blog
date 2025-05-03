@@ -1,0 +1,249 @@
+/* src/styles/dashboard.css */
+
+/* Basic Reset & Body */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f8f9fa; /* Light background for the page */
+  color: #343a40;
+}
+
+.dashboard-wrapper {
+  /* Optional: Add styles if you need an outer container */
+}
+
+/* Top Navbar */
+.dashboard-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #212529;
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  margin-right: 0.5rem;
+  /* Add specific styling if using an SVG/icon font */
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between items */
+}
+
+.navbar-button,
+.navbar-link {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+  background: none;
+}
+
+.navbar-button.create-new {
+  background-color: #e9ecef; /* Light yellow/greenish tint */
+  border-color: #ced4da;
+  color: #495057; /* Darker text */
+}
+.navbar-button.create-new:hover {
+  background-color: #dee2e6;
+  border-color: #adb5bd;
+}
+
+.navbar-link {
+  color: #495057;
+  border: none; /* No border for plain links */
+  background: none;
+}
+
+.navbar-link:hover {
+  color: #000000;
+  background-color: #f1f3f5; /* Slight hover background */
+}
+.navbar-link.logout {
+    /* Add specific styles if needed */
+}
+
+
+/* Main Layout */
+.dashboard-container {
+  display: flex;
+  min-height: calc(100vh - 65px); /* Full height minus navbar height (adjust if needed) */
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 240px; /* Fixed width */
+  background-color: #f0f4c3; /* Pale yellow background like image */
+  padding: 1.5rem;
+  border-right: 1px solid #dee2e6;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d4d8a9; /* Slightly darker border */
+}
+
+.profile-image {
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover; /* Ensure image covers */
+  border: 2px solid #ffffff; /* Optional white border */
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-email {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  background-color: #ffffff; /* White background for links */
+  border: 1px solid #e0e0e0;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #f5f5f5;
+}
+
+/* Main Content */
+.dashboard-content {
+  flex-grow: 1; /* Takes remaining space */
+  padding: 2rem;
+  background-color: #ffffff; /* White background for content area */
+}
+
+.dashboard-content h1 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.articles-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dee2e6;
+  color: #343a40;
+}
+
+/* Articles Table */
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.articles-table th,
+.articles-table td {
+  text-align: left;
+  padding: 0.8rem 0.6rem;
+  border-bottom: 1px solid #e9ecef; /* Lighter border for rows */
+  vertical-align: middle;
+}
+
+.articles-table th {
+  font-weight: 600;
+  color: #495057;
+  background-color: #f8f9fa; /* Very light header background */
+}
+
+.articles-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.articles-table tbody tr:hover {
+  background-color: #f1f3f5; /* Row hover effect */
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-weight: 500;
+}
+
+/* Specific Button Colors (Matching Yellowish Theme) */
+.button-edit,
+.button-delete,
+.button-preview {
+  background-color: #f0f4c3; /* Match sidebar */
+  border-color: #d4d8a9; /* Darker border */
+  color: #5f6334; /* Dark text */
+}
+
+.button-edit:hover,
+.button-delete:hover,
+.button-preview:hover {
+  background-color: #e6ebae; /* Slightly darker hover */
+  border-color: #c8ce9a;
+}
+
+/* You might want slightly different colors */
+/* .button-delete {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+.button-delete:hover {
+   background-color: #f5c6cb;
+   border-color: #f1b0b7;
+} */

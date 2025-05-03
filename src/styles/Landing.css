@@ -6,18 +6,14 @@
 
 /* Hero Section */
 .hero {
-  background-color: #6c757d; /* Fallback color */
+  /* background-color: #6c757d;  */
   /* If using image: */
-  /* background-image: url('../assets/hero-bg.jpg'); */
-  /* background-size: cover; */
-  /* background-position: center; */
+  background-image: url('../pages/component/assets/Card.jpg.png');
+  background-size: cover;
+  background-position: center;
 
   /* Using gradient similar to image */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    radial-gradient(circle at top left, rgba(180, 180, 180, 0.2) 0%, transparent 40%),
-                    radial-gradient(circle at bottom right, rgba(150, 150, 150, 0.2) 0%, transparent 50%);
-  background-color: #787d82; /* Base dark grey */
-
+ 
   color: #fff;
   text-align: center;
   padding: 6rem 1rem 4rem 1rem; /* More padding top/bottom */
@@ -30,13 +26,13 @@
 
 .heroOverlay {
   /* Optional: Add a darker overlay if bg image is too bright */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* background-color: rgba(0, 0, 0, 0.3); */
-  /* z-index: 1; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .heroContent {

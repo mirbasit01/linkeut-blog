@@ -1,104 +1,192 @@
 /* src/component/Navbar/Navbar.module.css */
+
+/* --- Base & Desktop Styles --- */
 .navbar {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff; /* Or transparent if overlapping hero */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: relative; /* Needed if background is transparent */
-  z-index: 10;
+  padding: 1rem 2rem; /* Original padding */
+  background-color: #fff; /* Original background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Original shadow */
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid #eee; /* Lighter border */
 }
 
+/* Logo */
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Original size */
   font-weight: bold;
   color: #333;
+  padding: 0;
+  margin-right: 1rem; /* Space after logo */
 }
-
+.logoLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
 .logoIcon {
-  color: #e6c300; /* Yellowish color like in image */
+  color: #e6c300; /* <<< Original Yellow Color */
   margin-right: 0.3rem;
-  font-size: 0.8em; /* Make triangle smaller */
+  font-size: 0.8em;
   display: inline-block;
-  transform: translateY(-1px); /* Align vertically */
+  transform: translateY(-1px);
 }
 
+/* Desktop Navigation Links Container */
 .navLinks {
   list-style: none;
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
+/* Desktop Individual Links */
 .navLinks li {
-  margin-left: 1.5rem;
+   margin-left: 1.5rem; /* Original spacing */
 }
 
-.navLinks a {
+.navLinks a,
+.navLinks :global(a) {
   text-decoration: none;
-  color: #555;
+  color: #555; /* Original link color */
   font-weight: 500;
+  padding: 0.5rem;
+  display: block;
   transition: color 0.3s ease;
 }
 
-.navLinks a:hover {
-  color: #000;
+.navLinks a:hover,
+.navLinks :global(a):hover {
+  color: #000; /* Original hover color */
 }
 
-.login, .signup {
-  color: #e6c300; /* Yellowish color */
+/* Specific Login/Signup links styling (desktop) */
+.navLinks .login,
+.navLinks .signup {
+  color: #e6c300; /* <<< Original Yellow Color */
   font-weight: 600;
 }
-
-.signup {
-  /* Add slight differentiation if needed, e.g., border or background */
+/* Optional styling for signup */
+/* .navLinks .signup { */
   /* background-color: #e6c300; */
   /* color: #333; */
   /* padding: 0.3rem 0.8rem; */
   /* border-radius: 4px; */
-}
+/* } */
 
+/* Mobile Toggle Button (Hidden on Desktop) */
 .mobileMenuToggle {
-  display: none; /* Hidden by default */
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  display: none; /* Hidden on desktop */
+  background: none; /* No background */
+  border: none; /* No border */
+  padding: 0.5rem; /* Click area */
+  margin: 0; /* Reset margin */
+  font-size: 1.5rem; /* Make icon large enough */
   cursor: pointer;
-  color: #333;
+  color: #333; /* Icon color */
+  z-index: 110;
+  line-height: 1; /* Prevent extra spacing */
+}
+.mobileMenuToggle:focus {
+  outline: 2px solid #e6c300; /* Yellow focus outline */
+  outline-offset: 2px;
+}
+/* Style the icon itself if needed (ensure color is applied) */
+.mobileMenuToggle i {
+    color: #333; /* Make sure icon color is set */
+    display: block; /* Ensure it takes space */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navLinks {
-    display: none; /* Hide links on smaller screens - requires JS to toggle */
-    /* Or stack them if you implement dropdown logic */
-    /* position: absolute; */
-    /* top: 100%; */
-    /* left: 0; */
-    /* background-color: #fff; */
-    /* width: 100%; */
-    /* flex-direction: column; */
-    /* padding: 1rem 0; */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  }
+/* Optional: Fallback text icon styling */
+.fallbackIcon {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
 
-  /* .navLinks.active { */
-    /* display: flex; */ /* Show when active */
-  /* } */
 
-  .navLinks li {
-    margin: 0.5rem 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .mobileMenuToggle {
-    display: block; /* Show hamburger icon */
-  }
+/* --- Responsive Styles --- */
+@media (max-width: 768px) { /* Using original breakpoint */
 
   .navbar {
-      padding: 1rem;
+     padding: 0.8rem 1rem; /* Adjust padding */
   }
+
+  /* Show the toggle button */
+  .mobileMenuToggle {
+    display: block; /* Show the button */
+  }
+
+  /* Style the nav links container for mobile (collapsible) */
+  .navLinks {
+    /* Layout when collapsed/expanded */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Position it absolutely below the navbar */
+    position: absolute;
+    top: 100%; /* Position right below the navbar */
+    left: 0;
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    z-index: 105;
+
+    /* --- Transition Properties --- */
+    overflow: hidden;
+    max-height: 0; /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0.35s;
+
+    /* Reset desktop styles */
+    align-items: center; /* Center items */
+    padding: 0; /* Remove padding when collapsed */
+    margin: 0; /* Reset margin */
+  }
+
+  /* --- Styles for VISIBLE State on Mobile (.active class) --- */
+  .navLinks.active {
+    max-height: 500px; /* Large enough height */
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0s;
+    padding: 0.5rem 0; /* Add padding back when visible */
+  }
+
+  /* Style individual links on mobile */
+  .navLinks li {
+    width: 100%;
+    margin: 0; /* Reset margin */
+  }
+
+  .navLinks a,
+  .navLinks :global(a) {
+    padding: 1rem 1rem; /* More vertical padding */
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333; /* Darker color for readability */
+    font-weight: 500;
+  }
+  .navLinks li:last-child a,
+  .navLinks li:last-child :global(a) {
+     border-bottom: none;
+  }
+  .navLinks a:hover,
+  .navLinks :global(a):hover {
+      background-color: #f8f8f8; /* Subtle hover */
+  }
+
+   /* Login/Signup links styling (mobile) - Ensure they use yellow */
+   .navLinks.active .login,
+   .navLinks.active .signup {
+       color: #e6c300; /* <<< Original Yellow Color */
+       font-weight: 600; /* Keep bold */
+   }
 }

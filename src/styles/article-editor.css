@@ -1,0 +1,410 @@
+/* src/styles/article-editor.css */
+
+/* --- Base & Container --- */
+.article-editor-container.enhanced-editor {
+  max-width: 1200px; /* Wider for better spacing */
+  margin: 2rem auto;
+  padding: 0; /* Remove padding, apply to inner cards */
+  background-color: #f4f6f8; /* Lighter background */
+  border-radius: 8px; /* Keep overall rounding */
+  /* Removed box-shadow from main container */
+}
+
+.editor-form {
+  /* Form itself doesn't need much styling */
+}
+
+/* --- Layout Rows --- */
+.editor-top-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem; /* Padding for the top section */
+  flex-wrap: wrap; /* Allow sidebar wrap */
+}
+
+.editor-bottom-row {
+  padding: 0 1.5rem 1.5rem; /* Padding only horizontal/bottom */
+}
+
+/* --- Columns --- */
+.editor-main-column {
+  flex: 3; /* More space for main content */
+  min-width: 400px; /* Adjust min width */
+  display: flex; /* To make card take full height if needed */
+  flex-direction: column;
+}
+
+.editor-sidebar-column {
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px; /* Slightly narrower sidebar */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between sidebar cards */
+}
+
+/* --- Card Styling --- */
+.editor-card {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+  padding: 1.5rem;
+  border: 1px solid #e0e4e8;
+}
+.main-content-card {
+    flex-grow: 1; /* Allow main card to grow */
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-card {
+  /* Sidebar cards have gap managed by the column */
+}
+.author-details-card {
+  /* Specific styles if needed */
+}
+
+
+/* --- Sections & Labels --- */
+.editor-section {
+  margin-bottom: 1.5rem;
+}
+.editor-section.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.editor-section-title {
+  font-size: 1rem; /* Slightly smaller section titles */
+  font-weight: 600;
+  color: #343a40;
+  margin: -1.5rem -1.5rem 1.5rem; /* Extend to card edges */
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #e0e4e8;
+  background-color: #f8f9fa; /* Slight background for title area */
+  border-radius: 6px 6px 0 0; /* Round top corners */
+}
+.sidebar-card .editor-section-title { /* Less negative margin for sidebar */
+     margin: -1.5rem -1.5rem 1rem;
+}
+
+.editor-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem; /* Smaller labels */
+  font-weight: 500;
+  color: #495057;
+}
+
+.sr-only { /* Screenreader only label */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- Inputs & Textareas --- */
+.editor-input,
+.editor-textarea,
+select.editor-input /* Style select like input */
+{
+  width: 100%;
+  padding: 0.6rem 0.8rem; /* Slightly reduced padding */
+  border: 1px solid #ced4da; /* Lighter border */
+  border-radius: 4px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff; /* Ensure white background */
+}
+select.editor-input {
+    height: calc(1.5em + 1.2rem + 2px); /* Match height roughly */
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem; /* Space for custom arrow */
+}
+
+
+.editor-input:focus,
+.editor-textarea:focus,
+select.editor-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.editor-title-input {
+  font-size: 1.5rem; /* Larger font for title */
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border: none; /* Remove border */
+  border-bottom: 1px solid #eee; /* Subtle bottom border */
+  border-radius: 0; /* No rounding */
+  box-shadow: none; /* No shadow */
+  margin-bottom: 1rem;
+}
+.editor-title-input:focus {
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.editor-textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.content-section {
+    flex-grow: 1; /* Make content section take available space */
+    display: flex;
+    flex-direction: column;
+}
+.editor-description-input {
+  flex-grow: 1; /* Make textarea fill the space */
+  border-top-left-radius: 0; /* Fit under toolbar */
+  border-top-right-radius: 0;
+  border-top: none; /* Remove top border if toolbar is visually connected */
+}
+
+/* --- Toolbar Placeholder --- */
+.editor-toolbar-placeholder {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-bottom: none; /* Visually connect to textarea */
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.editor-toolbar-placeholder span { /* Placeholder buttons */
+  font-family: monospace;
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+.editor-toolbar-placeholder span:hover {
+    background-color: #e9ecef;
+}
+
+
+/* --- Image Upload --- */
+.image-upload-input { display: none; }
+
+.image-upload-area {
+  border: 2px dashed #d0d4d8;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  position: relative; /* Needed for Image fill */
+  overflow: hidden; /* Clip the image */
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  display: flex; /* Center placeholder content */
+  align-items: center;
+  justify-content: center;
+}
+.image-upload-area:hover {
+  border-color: #a0a8b0;
+  background-color: #f1f3f5;
+}
+.image-upload-placeholder {
+    text-align: center;
+    color: #6c757d;
+}
+.image-upload-placeholder span:first-child { /* Icon */
+    font-size: 2rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.image-upload-placeholder span:not(:first-child) {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+.image-upload-placeholder small {
+    font-size: 0.75rem;
+    color: #adb5bd;
+}
+
+.image-preview {
+    /* Styles applied via fill layout and objectFit in component */
+}
+.remove-image-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+
+/* --- Author Section --- */
+.author-details-card .editor-section-title {
+     margin-bottom: 1.5rem; /* More space below title */
+}
+.author-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+}
+.author-fields-grid .editor-section {
+    margin-bottom: 0; /* Remove bottom margin as gap handles it */
+}
+.social-input {
+    margin-bottom: 0.75rem;
+}
+.social-input:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Action Buttons --- */
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  gap: 0.75rem;
+  padding-top: 1rem; /* Space above buttons */
+  margin-top: auto; /* Push to bottom of card if needed */
+  border-top: 1px solid #e0e4e8; /* Separator */
+}
+
+.editor-button {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-primary {
+  background-color: #0d6efd; /* Bootstrap blue */
+  color: white;
+  border-color: #0d6efd;
+}
+.button-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+.button-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(49, 132, 253, 0.5);
+}
+
+.button-secondary {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+.button-secondary:hover {
+  background-color: #5c636a;
+  border-color: #565e64;
+}
+.button-link { /* For remove image */
+    background: none;
+    border: none;
+    color: #dc3545; /* Red color for remove */
+    padding: 0.25rem;
+    text-decoration: underline;
+    font-size: 0.8rem;
+}
+.button-link:hover {
+    color: #a0212e;
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+  .editor-top-row {
+    flex-direction: column-reverse; /* Stack sidebar above main content */
+  }
+  .editor-sidebar-column {
+     max-width: none; /* Allow sidebar full width */
+     order: -1; /* Move sidebar visually to the top */
+  }
+}
+@media (max-width: 576px) {
+    .editor-top-row, .editor-bottom-row {
+        padding: 1rem; /* Reduce padding on small screens */
+    }
+    .editor-card {
+        padding: 1rem;
+    }
+    .editor-section-title {
+        margin: -1rem -1rem 1rem;
+        padding: 0.75rem 1rem;
+    }
+     .author-fields-grid {
+        grid-template-columns: 1fr; /* Stack author fields */
+        gap: 1rem;
+    }
+}
+
+/* src/styles/article-editor.css */
+
+/* --- (Keep all previous styles: Base, Container, Layout, Columns, Cards, Sections, Labels, Inputs etc.) --- */
+
+/* --- REMOVE Toolbar Placeholder Styles --- */
+/* .editor-toolbar-placeholder { ... } */ /* DELETE THIS RULE */
+
+/* --- REMOVE Textarea Specific Styles that conflict with Quill --- */
+/* .editor-description-input { ... } */ /* DELETE RULES like border-radius, border-top from here if they existed */
+
+/* --- ADD/ADJUST Styles for ReactQuill Integration --- */
+.quill-wrapper .ql-toolbar.ql-snow {
+  border-top-left-radius: 4px;    /* Match card rounding */
+  border-top-right-radius: 4px;
+  border: 1px solid #ced4da;     /* Standard border */
+  border-bottom: none;          /* Connect visually to editor */
+  background-color: #f8f9fa;    /* Light background for toolbar */
+  padding: 8px 8px;             /* Adjust padding */
+  box-sizing: border-box;
+}
+.quill-wrapper .ql-container.ql-snow {
+  border-bottom-left-radius: 4px; /* Match card rounding */
+  border-bottom-right-radius: 4px;
+  border: 1px solid #ced4da;     /* Standard border */
+  font-size: 1rem;              /* Base font size */
+  line-height: 1.6;             /* Better readability */
+  flex-grow: 1;                 /* Allow container to fill space */
+  display: flex;                /* Needed for editor to grow */
+  flex-direction: column;
+  min-height: 300px;             /* Ensure minimum editing height */
+  background-color: #fff;
+}
+
+.quill-wrapper .ql-editor {
+  flex-grow: 1;                 /* Allow editor area to fill container */
+  overflow-y: auto;             /* Enable scrolling within editor */
+  padding: 12px 15px;           /* Standard padding */
+  font-family: inherit;         /* Use page font */
+  height: auto;                 /* Let flexbox control height */
+  min-height: 250px;            /* Or set min-height here */
+}
+.quill-wrapper .ql-editor.ql-blank::before { /* Style placeholder */
+    color: #adb5bd;
+    font-style: normal;
+    left: 15px; /* Match padding */
+    right: 15px;
+}
+
+/* Focus state for the whole editor */
+.quill-wrapper .ql-container.ql-snow:focus-within {
+    border-color: #80bdff;
+    /* You might not need the box-shadow if the border is enough */
+    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+}
+/* Ensure toolbar border also highlights */
+.quill-wrapper .ql-container.ql-snow:focus-within + .ql-toolbar.ql-snow, /* Doesn't work well */
+.quill-wrapper .ql-toolbar.ql-snow:focus-within { /* Not reliable */
+    /* It's tricky to highlight toolbar border on editor focus easily with just CSS. */
+    /* Usually the editor border highlight is sufficient. */
+}
+
+/* --- (Keep other styles: Image Upload, Author Section, Buttons, Responsiveness etc.) --- */

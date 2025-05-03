@@ -83,12 +83,14 @@ src="/login-illustration.png"
             </div>
 
             {/* Submit Button */}
+            <Link href='/ArticleEditor' >
             <button
               type="submit"
               className={styles.submitButton}
             >
               Log In
             </button>
+            </Link>
              <p className={styles.switchFormLink}>
               Dont have an account?
                <Link href="/signup" className={styles.linkAction}>
