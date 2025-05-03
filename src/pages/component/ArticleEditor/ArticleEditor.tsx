@@ -799,17 +799,17 @@ const ArticleEditor: React.FC = () => {
     editorRef.current?.focus()
   }
 
-  const formatBold = () => execFormatCommand("bold")
-  const formatItalic = () => execFormatCommand("italic")
-  const formatUnderline = () => execFormatCommand("underline")
-  const formatLink = () => {
-    const url = prompt("Enter URL:")
-    if (url) execFormatCommand("createLink", url)
-  }
-  const formatH2 = () => execFormatCommand("formatBlock", "<h2>")
-  const formatParagraph = () => execFormatCommand("formatBlock", "<p>")
-  const formatOrderedList = () => execFormatCommand("insertOrderedList")
-  const formatUnorderedList = () => execFormatCommand("insertUnorderedList")
+  // const formatBold = () => execFormatCommand("bold")
+  // const formatItalic = () => execFormatCommand("italic")
+  // const formatUnderline = () => execFormatCommand("underline")
+  // const formatLink = () => {
+  //   const url = prompt("Enter URL:")
+  //   if (url) execFormatCommand("createLink", url)
+  // }
+  // const formatH2 = () => execFormatCommand("formatBlock", "<h2>")
+  // const formatParagraph = () => execFormatCommand("formatBlock", "<p>")
+  // const formatOrderedList = () => execFormatCommand("insertOrderedList")
+  // const formatUnorderedList = () => execFormatCommand("insertUnorderedList")
 
   return (
     <div className="article-editor-container enhanced-editor">
