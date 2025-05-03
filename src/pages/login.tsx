@@ -83,7 +83,7 @@ src="/login-illustration.png"
             </div>
 
             {/* Submit Button */}
-            <Link href='/ArticleEditor' >
+            <Link href='/admin/create-article' >
             <button
               type="submit"
               className={styles.submitButton}

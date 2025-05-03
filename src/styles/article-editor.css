@@ -52,9 +52,9 @@
   border: 1px solid #e0e4e8;
 }
 .main-content-card {
-    flex-grow: 1; /* Allow main card to grow */
-    display: flex;
-    flex-direction: column;
+  flex-grow: 1; /* Allow main card to grow */
+  display: flex;
+  flex-direction: column;
 }
 .sidebar-card {
   /* Sidebar cards have gap managed by the column */
@@ -63,13 +63,12 @@
   /* Specific styles if needed */
 }
 
-
 /* --- Sections & Labels --- */
 .editor-section {
   margin-bottom: 1.5rem;
 }
 .editor-section.no-margin-bottom {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .editor-section-title {
@@ -82,8 +81,9 @@
   background-color: #f8f9fa; /* Slight background for title area */
   border-radius: 6px 6px 0 0; /* Round top corners */
 }
-.sidebar-card .editor-section-title { /* Less negative margin for sidebar */
-     margin: -1.5rem -1.5rem 1rem;
+.sidebar-card .editor-section-title {
+  /* Less negative margin for sidebar */
+  margin: -1.5rem -1.5rem 1rem;
 }
 
 .editor-label {
@@ -94,7 +94,8 @@
   color: #495057;
 }
 
-.sr-only { /* Screenreader only label */
+.sr-only {
+  /* Screenreader only label */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -109,8 +110,7 @@
 /* --- Inputs & Textareas --- */
 .editor-input,
 .editor-textarea,
-select.editor-input /* Style select like input */
-{
+select.editor-input /* Style select like input */ {
   width: 100%;
   padding: 0.6rem 0.8rem; /* Slightly reduced padding */
   border: 1px solid #ced4da; /* Lighter border */
@@ -121,15 +121,14 @@ select.editor-input /* Style select like input */
   background-color: #fff; /* Ensure white background */
 }
 select.editor-input {
-    height: calc(1.5em + 1.2rem + 2px); /* Match height roughly */
-    appearance: none; /* Remove default arrow */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    padding-right: 2.5rem; /* Space for custom arrow */
+  height: calc(1.5em + 1.2rem + 2px); /* Match height roughly */
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem; /* Space for custom arrow */
 }
-
 
 .editor-input:focus,
 .editor-textarea:focus,
@@ -150,8 +149,8 @@ select.editor-input:focus {
   margin-bottom: 1rem;
 }
 .editor-title-input:focus {
-    border-color: #ccc;
-    box-shadow: none;
+  border-color: #ccc;
+  box-shadow: none;
 }
 
 .editor-textarea {
@@ -161,41 +160,91 @@ select.editor-input:focus {
 }
 
 .content-section {
-    flex-grow: 1; /* Make content section take available space */
-    display: flex;
-    flex-direction: column;
-}
-.editor-description-input {
-  flex-grow: 1; /* Make textarea fill the space */
-  border-top-left-radius: 0; /* Fit under toolbar */
-  border-top-right-radius: 0;
-  border-top: none; /* Remove top border if toolbar is visually connected */
-}
-
-/* --- Toolbar Placeholder --- */
-.editor-toolbar-placeholder {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
-  border-bottom: none; /* Visually connect to textarea */
-  padding: 0.5rem 0.8rem;
-  border-radius: 4px 4px 0 0;
+  flex-grow: 1; /* Make content section take available space */
   display: flex;
-  gap: 0.8rem;
-  align-items: center;
-}
-.editor-toolbar-placeholder span { /* Placeholder buttons */
-  font-family: monospace;
-  cursor: pointer;
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-}
-.editor-toolbar-placeholder span:hover {
-    background-color: #e9ecef;
+  flex-direction: column;
 }
 
+/* --- Custom Editor Styles --- */
+.custom-editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ced4da;
+}
+
+.toolbar-button {
+  background-color: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.toolbar-button:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.toolbar-button:active {
+  background-color: #dee2e6;
+}
+
+.editor-content {
+  flex-grow: 1;
+  min-height: 300px;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #212529;
+}
+
+.editor-content:focus {
+  outline: none;
+}
+
+.editor-content h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.editor-content p {
+  margin-bottom: 1rem;
+}
+
+.editor-content ul,
+.editor-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.editor-content a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
 
 /* --- Image Upload --- */
-.image-upload-input { display: none; }
+.image-upload-input {
+  display: none;
+}
 
 .image-upload-area {
   border: 2px dashed #d0d4d8;
@@ -215,39 +264,39 @@ select.editor-input:focus {
   background-color: #f1f3f5;
 }
 .image-upload-placeholder {
-    text-align: center;
-    color: #6c757d;
+  text-align: center;
+  color: #6c757d;
 }
-.image-upload-placeholder span:first-child { /* Icon */
-    font-size: 2rem;
-    line-height: 1;
-    display: block;
-    margin-bottom: 0.5rem;
+.image-upload-placeholder span:first-child {
+  /* Icon */
+  font-size: 2rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 .image-upload-placeholder span:not(:first-child) {
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
 }
 .image-upload-placeholder small {
-    font-size: 0.75rem;
-    color: #adb5bd;
+  font-size: 0.75rem;
+  color: #adb5bd;
 }
 
 .image-preview {
-    /* Styles applied via fill layout and objectFit in component */
+  /* Styles applied via fill layout and objectFit in component */
 }
 .remove-image-btn {
-    display: block;
-    width: 100%;
-    margin-top: 0.5rem;
-    text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  text-align: center;
 }
-
 
 /* --- Author Section --- */
 .author-details-card .editor-section-title {
-     margin-bottom: 1.5rem; /* More space below title */
+  margin-bottom: 1.5rem; /* More space below title */
 }
 .author-fields-grid {
   display: grid;
@@ -255,13 +304,13 @@ select.editor-input:focus {
   gap: 1.5rem;
 }
 .author-fields-grid .editor-section {
-    margin-bottom: 0; /* Remove bottom margin as gap handles it */
+  margin-bottom: 0; /* Remove bottom margin as gap handles it */
 }
 .social-input {
-    margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .social-input:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* --- Action Buttons --- */
@@ -294,7 +343,7 @@ select.editor-input:focus {
   border-color: #0a58ca;
 }
 .button-primary:focus {
-    box-shadow: 0 0 0 0.2rem rgba(49, 132, 253, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(49, 132, 253, 0.5);
 }
 
 .button-secondary {
@@ -306,105 +355,44 @@ select.editor-input:focus {
   background-color: #5c636a;
   border-color: #565e64;
 }
-.button-link { /* For remove image */
-    background: none;
-    border: none;
-    color: #dc3545; /* Red color for remove */
-    padding: 0.25rem;
-    text-decoration: underline;
-    font-size: 0.8rem;
+.button-link {
+  /* For remove image */
+  background: none;
+  border: none;
+  color: #dc3545; /* Red color for remove */
+  padding: 0.25rem;
+  text-decoration: underline;
+  font-size: 0.8rem;
 }
 .button-link:hover {
-    color: #a0212e;
+  color: #a0212e;
 }
 
-
 /* --- Responsiveness --- */
-@media (max-width: 992px) { /* Adjust breakpoint as needed */
+@media (max-width: 992px) {
+  /* Adjust breakpoint as needed */
   .editor-top-row {
     flex-direction: column-reverse; /* Stack sidebar above main content */
   }
   .editor-sidebar-column {
-     max-width: none; /* Allow sidebar full width */
-     order: -1; /* Move sidebar visually to the top */
+    max-width: none; /* Allow sidebar full width */
+    order: -1; /* Move sidebar visually to the top */
   }
 }
 @media (max-width: 576px) {
-    .editor-top-row, .editor-bottom-row {
-        padding: 1rem; /* Reduce padding on small screens */
-    }
-    .editor-card {
-        padding: 1rem;
-    }
-    .editor-section-title {
-        margin: -1rem -1rem 1rem;
-        padding: 0.75rem 1rem;
-    }
-     .author-fields-grid {
-        grid-template-columns: 1fr; /* Stack author fields */
-        gap: 1rem;
-    }
+  .editor-top-row,
+  .editor-bottom-row {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+  .editor-card {
+    padding: 1rem;
+  }
+  .editor-section-title {
+    margin: -1rem -1rem 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .author-fields-grid {
+    grid-template-columns: 1fr; /* Stack author fields */
+    gap: 1rem;
+  }
 }
-
-/* src/styles/article-editor.css */
-
-/* --- (Keep all previous styles: Base, Container, Layout, Columns, Cards, Sections, Labels, Inputs etc.) --- */
-
-/* --- REMOVE Toolbar Placeholder Styles --- */
-/* .editor-toolbar-placeholder { ... } */ /* DELETE THIS RULE */
-
-/* --- REMOVE Textarea Specific Styles that conflict with Quill --- */
-/* .editor-description-input { ... } */ /* DELETE RULES like border-radius, border-top from here if they existed */
-
-/* --- ADD/ADJUST Styles for ReactQuill Integration --- */
-.quill-wrapper .ql-toolbar.ql-snow {
-  border-top-left-radius: 4px;    /* Match card rounding */
-  border-top-right-radius: 4px;
-  border: 1px solid #ced4da;     /* Standard border */
-  border-bottom: none;          /* Connect visually to editor */
-  background-color: #f8f9fa;    /* Light background for toolbar */
-  padding: 8px 8px;             /* Adjust padding */
-  box-sizing: border-box;
-}
-.quill-wrapper .ql-container.ql-snow {
-  border-bottom-left-radius: 4px; /* Match card rounding */
-  border-bottom-right-radius: 4px;
-  border: 1px solid #ced4da;     /* Standard border */
-  font-size: 1rem;              /* Base font size */
-  line-height: 1.6;             /* Better readability */
-  flex-grow: 1;                 /* Allow container to fill space */
-  display: flex;                /* Needed for editor to grow */
-  flex-direction: column;
-  min-height: 300px;             /* Ensure minimum editing height */
-  background-color: #fff;
-}
-
-.quill-wrapper .ql-editor {
-  flex-grow: 1;                 /* Allow editor area to fill container */
-  overflow-y: auto;             /* Enable scrolling within editor */
-  padding: 12px 15px;           /* Standard padding */
-  font-family: inherit;         /* Use page font */
-  height: auto;                 /* Let flexbox control height */
-  min-height: 250px;            /* Or set min-height here */
-}
-.quill-wrapper .ql-editor.ql-blank::before { /* Style placeholder */
-    color: #adb5bd;
-    font-style: normal;
-    left: 15px; /* Match padding */
-    right: 15px;
-}
-
-/* Focus state for the whole editor */
-.quill-wrapper .ql-container.ql-snow:focus-within {
-    border-color: #80bdff;
-    /* You might not need the box-shadow if the border is enough */
-    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
-}
-/* Ensure toolbar border also highlights */
-.quill-wrapper .ql-container.ql-snow:focus-within + .ql-toolbar.ql-snow, /* Doesn't work well */
-.quill-wrapper .ql-toolbar.ql-snow:focus-within { /* Not reliable */
-    /* It's tricky to highlight toolbar border on editor focus easily with just CSS. */
-    /* Usually the editor border highlight is sufficient. */
-}
-
-/* --- (Keep other styles: Image Upload, Author Section, Buttons, Responsiveness etc.) --- */
